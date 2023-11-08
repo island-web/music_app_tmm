@@ -17,9 +17,26 @@ const createWindow = () => {
     },
   });
 
+  //set position window
+  const mainScreen = screen.getPrimaryDisplay();
+  const screenWidth = mainScreen.size.width;
+  const screenHeight = mainScreen.size.height;
 
-  mainWindow.loadFile('./index.html')
-  mainWindow.webContents.openDevTools()
+  const windowWidth = mainWindow.getSize()[0];
+  const windowHeight = mainWindow.getSize()[1];
+
+  const x = (screenWidth - windowWidth) / 2;
+  const y = (screenHeight - windowHeight) / 2;
+  mainWindow.setPosition(x, y);
+
+
+
+  mainWindow.loadFile('./index.html');
+  mainWindow.webContents.openDevTools();
+
+  ipcMain.on('reload-app', () => { app.relaunch(); app.quit() });
+  ipcMain.on('quit-app', () => { app.quit() });
+
 }
 
 // This method will be called when Electron has finished

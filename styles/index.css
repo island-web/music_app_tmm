@@ -179,7 +179,10 @@ p {
 
 
 /* blocks */
-.home {
+.home,
+.profile,
+.my_playlists,
+.favorite_songs {
     display: none;
 }
 

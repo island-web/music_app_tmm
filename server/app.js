@@ -26,7 +26,7 @@ function showBlock(name) {
 }
 
 SOCK_.on("connect", () => { console.log("Connect to server!") });
-SOCK_.emit("get_all_playlists");
+
 SOCK_.on("all_playlists", (data) => { console.log(data) });
 
 

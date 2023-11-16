@@ -1,5 +1,5 @@
 :root {
-    --brand-color: #00ff08;
+    --brand-color: #1DCCB8;
     --hue: 223;
     --off-hue: 3;
     --on-hue1: 123;
@@ -22,14 +22,25 @@ body {
     transition:
         background-color var(--trans-dur),
         color var(--trans-dur);
+    padding: 8%;
 }
 
 .main {
     width: 100%;
     height: 100%;
-    padding: 5%;
+    padding: 2%;
     overflow: auto;
     overflow-x: hidden;
+}
+
+.login-window {
+    font-family: monospace;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: #0000008c;
+    background-size: cover;
+    display: none;
 }
 
 .header {
@@ -43,13 +54,73 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 100px;
-    background-color: #000;
+    text-align: right;
 }
+
+.button-footer {
+    margin-bottom: 0;
+}
+
 
 p {
     font-size: medium;
     color: var(--brand-color);
+}
+
+.a-button-footer {
+    background: none;
+    border: none;
+}
+
+.a-button-footer:hover,
+.a-button-footer:active {
+    border: none;
+    background: none;
+}
+
+.progress {
+    border-radius: 4px;
+    height: 8px;
+    margin-bottom: 10px;
+    background: black;
+    box-shadow: 0px 0px 5px 2px #327b7b;
+}
+
+.progress-bar {
+    background-color: #0dfde9;
+    box-shadow: 1px 1px 10px 1px var(--brand-color);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.p-title-control {
+    font-size: 1rem;
+    color: #20a98b;
+    text-align: center;
+    letter-spacing: .05em;
+    text-shadow: 2px 2px 0px #000000, 3px 3px 0px rgb(0 0 0);
+}
+
+.fa-backward,
+.fa-play,
+.fa-forward {
+    color: #202020 !important;
+    letter-spacing: .1em;
+    text-shadow: 
+      -1px -1px 1px #111, 
+      2px 2px 1px #363636;
+}
+
+.fa-backward:hover,
+.fa-play:hover,
+.fa-forward:hover,
+.fa-bars:hover,
+.fa-heart:hover,
+.fa-plus:hover {
+    color: #1DCCB8 !important;
+    text-shadow: 0px 0px 5px #1dccb8, 2px 2px 1px #000000;
+    cursor: pointer;
+
 }
 
 ::-webkit-scrollbar {
@@ -73,12 +144,15 @@ p {
 
 /* Цвет бегунка (ползунка) полосы прокрутки */
 * {
-    scrollbar-color: #888 #00ff08;
+    scrollbar-color: #888 #1DCCB8;
 }
 
 
 
-
+.card-body {
+    background-color: #00000040;
+    border-radius: 0;
+}
 
 .navbar-brand,
 .fa-fade {
@@ -100,8 +174,8 @@ p {
 
 
 .logo {
-    color: #00ff08;
-    text-shadow: 2px 2px 5px #00ff08, -2px -2px 5px #00ff08;
+    color: #1DCCB8;
+    text-shadow: 2px 2px 5px #1DCCB8, -2px -2px 5px #1DCCB8;
 }
 
 .offcanvas {
@@ -110,6 +184,7 @@ p {
 
 .fa-solid {
     cursor: pointer;
+    color: var(--brand-color)
 }
 
 .text-bg-dark {
@@ -121,19 +196,19 @@ p {
     height: 60px;
     border-left-style: outset;
     border-left-width: 1px;
-    border-left-color: darkgreen;
+    border-left-color: var(--brand-color);
 }
 
 .nav-link {
-     color: #00ff08;
+    color: #1DCCB8;
 }
 
 .nav-item:hover,
 .nav-item:focus,
 .nav-item:active {
     background: none;
-    color: #00ff08;
-    text-shadow: 0px 0px 2px #00ff08, 0px 0px 2px #00ff08bf;
+    color: #1DCCB8;
+    text-shadow: 0px 0px 2px #1DCCB8, 0px 0px 2px #1DCCB8bf;
 }
 
 .btn-close {
@@ -150,7 +225,7 @@ p {
     background-color: #000000a6;
     border-left-style: outset;
     border-left-width: 1px;
-    border-left-color: darkgreen;
+    border-left-color: var(--brand-color);
 }
 
 .menu-footer {
@@ -166,21 +241,29 @@ p {
 .googleplay {
     text-align: left;
     font-size: 20px;
-    color: #00ff08;
+    color: #1DCCB8;
 }
 
 .appstore {
     text-align: right;
     font-size: 20px;
-    color: #00ff08;
+    color: #1DCCB8;
 }
 
-.btn {
+.btn-login-win {
     background: none;
     border: none;
     height: 30px;
-    color: black;
-    text-shadow: 0px 0px 2px #00ff08, 0px 0px 2px #00ff08bf;
+    color: rgb(184, 173, 173);
+    text-shadow: 0px 0px 2px #1DCCB8, 0px 0px 2px #1DCCB8bf;
+}
+
+
+.btn-login-win:hover {
+    color: var(--brand-color);
+    text-shadow: 0px 0px 2px #a1a8a2, 0px 0px 2px #a1a8a2;
+    border: none;
+    background: none;
 }
 
 /* blocks */
@@ -194,18 +277,22 @@ p {
     font-size: 1rem;
 }
 
-#login {
+#login,
+#password {
     margin-bottom: 20px;
-    background-color: #000;
+    background-color: #0000;
     border: none;
-    box-shadow: 0px 0px 10px 2px #00ff2b, 0px 0px 10px 2px #00ff2b;
+    box-shadow: inset 0px 0px 5px 0px var(--brand-color), inset 0px 0px 5px 0px var(--brand-color), 0px 0px 5px 0px var(--brand-color), 0px 0px 5px 0px var(--brand-color);
+    text-align: center;
+    color: var(--brand-color);
 }
 
-#password {
-    background-color: #000;
-    border: none;
-    box-shadow: 0px 0px 10px 2px #00ff2b, 0px 0px 10px 2px #00ff2b;
+#login:focus,
+#password:focus {
+    outline: none;
+    box-shadow: inset 0px 0px 5px 1px #adb5bd, inset 0px 0px 5px 1px white, 0px 0px 2px 1px white, 0px 0px 2px 1px white;
 }
+
 .modal-content {
     position: relative;
     display: flex;
@@ -244,7 +331,7 @@ p {
     font-size: 25px;
     color: #000;
     letter-spacing: .1em;
-    text-shadow: -1px -1px 2px #00ff08, 1px 1px 2px #00ff08;
+    text-shadow: -1px -1px 2px #1DCCB8, 1px 1px 2px #1DCCB8;
 }
 
 .play-btn,
@@ -252,15 +339,15 @@ p {
     font-size: 30px;
     color: #000;
     letter-spacing: .1em;
-    text-shadow: -1px -1px 2px #00ff08, 1px 1px 2px #00ff08;
+    text-shadow: -1px -1px 2px #1DCCB8, 1px 1px 2px #1DCCB8;
 }
 
 .play-btn:hover,
 .pause-btn:hover,
 .prev-btn:hover,
 .next-btn:hover {
-    color: #00ff08;
-    text-shadow: 0px 0px 2px #00ff08, 0px 0px 2px #00ff08bf;
+    color: #1DCCB8;
+    text-shadow: 0px 0px 2px #1DCCB8, 0px 0px 2px #1DCCB8bf;
 }
 
 .wrapper>div {
@@ -296,7 +383,7 @@ progress {
     border-radius: 6px;
     display: block;
     margin: 0 auto;
-    box-shadow: 0px 0px 1px 1px #00ff08, 0px 0px 1px 1px #00ff08;
+    box-shadow: 0px 0px 1px 1px #1DCCB8, 0px 0px 1px 1px #1DCCB8;
 }
 
 .progress-panel {
@@ -356,4 +443,15 @@ progress::-webkit-progress-bar {
     grid-template-columns: 10% 30% 40% 20%;
     /* grid-template-rows: 30px 30px; */
     align-items: left;
+}
+
+.head-btn {
+    text-align: center;
+}
+
+
+@media (max-width: 767px) {
+    .head-btn {
+        margin-top: 15%;
+    }
 }

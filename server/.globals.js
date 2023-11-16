@@ -7,6 +7,7 @@ global.fs = require('fs-extra');
 global.os = require('os');
 global.$ = require('jquery');
 
+global.USER_DATA_ = JSON.parse(sessionStorage.getItem('user'), 'utf-8');
 
 
 const MAC = require('getmac').default;
@@ -29,6 +30,5 @@ const DATA_CONNECT = {
         homedir: os.homedir()
     }
 };
-
 
 global.SOCK_ = io(`${host}:${port}`, { auth: { key: "JEPbF46zxSbntZnkmXf1uib7YG203C8Xq6", data: DATA_CONNECT.info } });

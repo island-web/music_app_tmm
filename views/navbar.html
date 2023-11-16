@@ -1,5 +1,7 @@
 <div class="container-fluid">
-    <a class="navbar-brand logo" href="#">Music App</a>
+    <a class="navbar-brand" href="#">
+        <img src="./img/logo.png" alt="" width="50" height="44">
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
         aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
         <span><i class="fa-solid fa-ellipsis fa-fade"></i></span>
@@ -7,8 +9,8 @@
     <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
         aria-labelledby="offcanvasDarkNavbarLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" data-bs-dismiss="offcanvas" aria-label="Close">
-                <i class="fa-solid fa-person-walking-arrow-right fa-fade" data-bs-toggle="modal" data-bs-target="#login-modal"></i>
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" data-bs-dismiss="offcanvas" aria-label="Close" onclick="showDialogWindow('login')">
+                <i class="fa-solid fa-person-walking-arrow-right fa-fade"></i>
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
         </div>
@@ -16,7 +18,7 @@
 
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-bs-dismiss="offcanvas" aria-label="Close" id="home" onclick="showBlock(this.id)">Home</a>
+                    <a class="nav-link" href="#" data-bs-dismiss="offcanvas" aria-label="Close" id="home" onclick="showBlock(this.id)">Albums</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-bs-dismiss="offcanvas" aria-label="Close" id="profile" onclick="showBlock(this.id)">Profile</a>
@@ -34,7 +36,7 @@
                     <a class="nav-link" href="#" data-bs-dismiss="offcanvas" aria-label="Close" id="contacts" onclick="showBlock(this.id)">Contacts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-bs-dismiss="offcanvas" aria-label="Close" id="exit" onclick="exit()">Close</a>
+                    <a class="nav-link" href="#" data-bs-dismiss="offcanvas" aria-label="Close" id="exit" onclick="closeApp()">Close</a>
                 </li>
             </ul>
             <div class="row menu-footer">
@@ -45,5 +47,3 @@
 
     </div>
 </div>
-
-

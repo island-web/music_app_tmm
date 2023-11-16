@@ -1,16 +1,7 @@
 require("./server/.globals.js");
 require("./server/.globals_mod.js");
 
-//Подключение основных блоков
-$('.navbar').load('./views/navbar.html');
-$('.footer').load('./views/control_panel.html');
-$('.home').load('./views/home.html');
-$('.profile').load('./views/profile.html');clearImmediate
-$('.my_playlists').load('./views/my_playlists.html');
-
-//Подключение модальных окон
-$('#login-modal').load('./views/modals/login.html');
-
+const { ipcRenderer } = require('electron');
 
 
 // аля react rout только проще и быстрее
@@ -30,13 +21,18 @@ function showBlock(name) {
     
 }
 
-SOCK_.on("connect", () => { console.log("Connect to server!") });
+ 
 
-SOCK_.on("all_playlists", (data) => { console.log(data) });
-
-
-
-
-
-
-
+if(localStorage.getItem('auth') !== 'true') {
+    //Подключение блока авторизации
+    $('.login-window').load('./views/login.html');
+    $('.login-window').css('display', 'contents');
+}else {
+    //Подключение основных блоков
+    $('.navbar').load('./views/navbar.html');
+    $('.footer').load('./views/control_panel.html');
+    $('.home').load('./views/home.html');
+    $('.profile').load('./views/profile.html');
+    $('.my_playlists').load('./views/my_playlists.html');
+    showBlock('home');
+}

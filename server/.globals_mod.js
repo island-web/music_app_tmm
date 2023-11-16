@@ -1,4 +1,4 @@
-
+const { ipcRenderer } = require('electron');
 
 global.getAllPlaylists = () => {
     return {
@@ -13,4 +13,23 @@ global.getAllPlaylists = () => {
             {id:4, name: "Test_segment", style: "Restoran", count_songs: 320, img_path: 'https://musictmm.com/newApp/img/playlist_posters/muzred/4.jpg', date_create: '07-11-2023', description: "Best songs from segment"},
         ]
     }
+}
+
+// Listen from main process
+
+
+
+// Listen from server
+
+    
+
+
+
+//global functions
+
+global.closeApp = () => { localStorage.setItem('auth', 'false'); ipcRenderer.send('quit-app') }
+
+global.changeControlButton = () => {
+    const controlButton = document.getElementById('control-button');
+    (controlButton.classList.contains('fa-chevron-up')) ? controlButton.classList.replace('fa-chevron-up', 'fa-chevron-down') : controlButton.classList.replace('fa-chevron-down', 'fa-chevron-up');
 }

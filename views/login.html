@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="./styles/login.css">
+
+<div class="login-modal">
+    <h3 class="brand-name">Login</h3>
+    <div class="input-field">
+        <input type="phone" class="id" id="login" placeholder="Login">
+    </div>
+    <div class="input-field">
+        <input type="password" class="password" id="password" placeholder="Password">
+    </div>
+
+    <button type="submit" class="btn btn-sky" onclick="auth()">Login</button>
+
+    <div class="close-sign" onclick="closeDialogWindow()">X</div>
+</div>
+
+<div class="result-login"></div>
+
+<script src="./server/login.js"></script>
